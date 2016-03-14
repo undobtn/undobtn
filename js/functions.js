@@ -116,7 +116,7 @@ function timeElapse(date){
 
 function showMessages() {
 	adjustWordsPosition();
-	$('#messages').fadeIn(5000, function() {
+	$('#messages').fadeIn(2000, function() {
 		showLoveU();
 	});
 }
@@ -132,7 +132,7 @@ function adjustCodePosition() {
 }
 
 function showLoveU() {
-	$('#loveu').fadeIn(3000);
+	$('#loveu').fadeIn(2000);
 }
 
 function GetDateDiff(startDate,endDate)  
@@ -199,7 +199,7 @@ int_day=int_day-timeSpan;
 var result = "<span class=\"digit\">" + int_day + "</span> Days <span class=\"digit\">" + int_hour + "</span> Hours <span class=\"digit\">" + int_minute + "</span> Minutes <span class=\"digit\">" + int_second + "</span>Seconds  "; 
 	$("#elapseClock").html(result);
 
-setTimeout("show_time()",1000);
+setTimeout("show_time()",900);
 }else{
 clearTimeout(timerID)
 } 
