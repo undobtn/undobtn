@@ -161,13 +161,13 @@ function getNowFormatDate() {
 }
 
 var time_now_server,time_now_client,time_end,time_server_client,timerID,timeSpan;
-time_end=new Date("2016 03 05 13:10:50");//结束的时间
+time_end=new Date("2016 03 14 13:10:50");
 time_end=time_end.getTime();
-timeSpan=parseInt(GetDateDiff("2016/3/5",getNowFormatDate()));
+timeSpan=parseInt(GetDateDiff("2016/3/14",getNowFormatDate()));
 console.log(timeSpan);
 
 
-time_now_server=new Date("2015 11 14 17:30:30");//开始的时间
+time_now_server=new Date("2015 11 14 17:30:30");
 time_now_server=time_now_server.getTime();
 time_now_client=new Date();
 time_now_client=time_now_client.getTime();
@@ -201,7 +201,6 @@ var result = "<span class=\"digit\">" + int_day + "</span> Days <span class=\"di
 
 setTimeout("show_time()",1000);
 }else{
-timer.innerHTML =timer.innerHTML;
 clearTimeout(timerID)
 } 
 }
