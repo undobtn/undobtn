@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Undo</title>
+	<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+.title{
+	width: 300px;
+    font-size: 1.5em;
+    opacity: 1;
+    margin-left: 10px;
+    transition: all 1s .3s;
+    position: absolute;
+}
+.title1{
+	width: 300px;
+    font-size: 1.5em;
+    opacity: 1;
+    display: block;
+    transition: all 1s .3s;
+    position: absolute;
+}
+.breath {
+	line-height: 4px;
+	overflow:hidden;
+	color: #fff;
+	opacity:0.3;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	-ms-border-radius:2px;
+	-o-border-radius:2px;
+	border-radius:2px;
+	-webkit-animation-name: breath;
+	-webkit-animation-duration: 6s;		/*人的普通呼吸时间是3秒每次，深呼吸时间是6秒每次*/
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+	}
+
+@-webkit-keyframes 'breath' {
+	from {
+		opacity:1;
+	}
+	50% {
+		opacity:0.3;
+	}
+	to {
+		opacity:1;
+	}
+	}
+</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/fish88.css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+	<div id="mainDiv">
+		<div class="title breath" style="display:none">
+			<img src="images/t0.png" width="60%"></div>
+		<div id="content">
+			<!-- <div id="code" > -->
+				<!-- 被你看到了～ -->
+
+				<!-- <span class="comments breath">多少次的选择，促成我们的相遇,几乎为零的几率</span>
+			<br />
+			<span class="comments breath">或许是缘分，亦或是注定</span>
+			<br />
+			<br />
+			在相遇的91天中，我们见面16次，平均每次在一起3.5小时
+			<br />
+			<br />
+			一起坐过两次公交，两次地铁，爬过两座山，去过两个公园，品尝了15家不同的美食
+			<br />
+			<br />
+			已经并肩步行走过近40公里路程，然在深圳往北只到牛栏前，往东仅到梧桐山，往西也止步于深圳湾，还有很多好玩有趣的地方没有去过，南山的海上世界，小梅沙的海洋世界，还有深圳最美的海岸线西冲
+			<br />
+			<br />
+			<span class=" comments breath">
+				希望能够一直和你走下去
+				<br />
+				吃着同样的食物
+				<br />
+				看着同样的风景
+				<br />
+				一起这样慢慢变老.
+				<br />
+			</span>
+			-->
+			
+		<!-- </div> -->
+
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					<div id="elapseClock"></div>
+				</div>
+				 <div id="loveu"><div class="signature">If  life  had  an  undo  button.</div></div>
+			
+		</div>
+	</div>
+	<div class="title1 breath" style="display:none;">
+			<img src="images/t1.png" width="100%">
+		</div>
+</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	 $('.title').css("margin-left",Math.max(($window.width() - $("#content").width()) /3, 10));
+	 $('.title').css("margin-top",Math.max(($window.height() - $("#content").height()) / 8, 10));
+	 $('.title1').css("margin-left",$window.width()/3);
+	 $('.title1').css("margin-top",Math.max($("#content").height() / 2+50, 10));
+	 setInterval(function(){
+	 	$(".title").fadeIn("2000");
+	 	var title1=$('.title1');
+	 	if (title1) {
+	 		$(".title1").fadeIn("900");
+	 	};
+	 },10);
+})
+
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2015, 10, 14);
+together.setHours(17);
+together.setMinutes(30);
+together.setSeconds(30);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 20);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 1000);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+
+
+</script>
+</body>
+</html>
